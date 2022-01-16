@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import Card from '../Card/Card'
 import { CardGrid } from './UpcomingLaunchPage.style'
 import LoadingSpinner from '../LoadingSpinner/LoadingSpinner'
+import TopButton from '../TopButton/TopButton'
 
 const UpcomingLaunchPage = () => {
    const [launchData, setlaunchData] = useState(null)
@@ -25,11 +26,14 @@ const UpcomingLaunchPage = () => {
    if (error) return 'Error!'
 
    return (
-      <CardGrid>
-         {launchData.map((launch) => (
-            <Card key={launch.id} {...launch} />
-         ))}
-      </CardGrid>
+      <div>
+         <CardGrid>
+            {launchData.map((launch) => (
+               <Card key={launch.id} {...launch} />
+            ))}
+         </CardGrid>
+         <TopButton />
+      </div>
    )
 }
 

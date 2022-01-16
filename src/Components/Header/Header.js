@@ -3,7 +3,7 @@ import { NavBar, Content, LaunchLink } from './Header.styles'
 import spaceX from '../../assets/Spacex-logo.png'
 
 const Header = () => (
-   <div>
+   <div id="top">
       <NavBar>
          <NavLink to="/"><img src={spaceX} alt="SpaceX" /></NavLink>
       </NavBar>

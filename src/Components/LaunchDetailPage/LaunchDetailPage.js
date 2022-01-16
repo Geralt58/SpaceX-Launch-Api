@@ -4,6 +4,7 @@ import dayjs from 'dayjs'
 import LoadingSpinner from '../LoadingSpinner/LoadingSpinner'
 import YouTube from 'react-youtube'
 import { LaunchDetailLayot } from './LaunchDetailPage.style'
+import TopButton from '../TopButton/TopButton'
 
 const LaunchDetailPage = () => {
    const [launchData, setlaunchData] = useState(null)
@@ -50,63 +51,69 @@ const LaunchDetailPage = () => {
    if (error) return 'Error!'
 
    return (
-      <LaunchDetailLayot>
-         <div>
-            <h1>{launchData.name}</h1>
-            <h3>Launch Details:</h3>
-            <ul>
-               <li>
-                  <span>Launch date:</span> {toDate(launchData.date)}
-               </li>
-               <li>
-                  <span>Flight number: </span>
-                  {launchData.flight_number}
-               </li>
-               <li>
-                  <span>Rocket Name: </span>
-                  {rocketData.find((rocket) => rocket.id === launchData.rocket).name}
-               </li>
-               <li>
-                  <span>Success: </span>
-                  {launchData.success ? 'Yes' : 'No'}
-               </li>
-               <li>
-                  <span>Payloads: </span>
-                  {launchData.payloads.map((payloadID) => (
-                     <p key={payloadID}>{payloadData.find((payload) => payload.id === payloadID).name} with Load {payloadData.find((payload) => payload.id === payloadID).mass_kg || '0'}Kg</p>
-                  ))}
-               </li>
-            </ul>
+      <div>
+         <LaunchDetailLayot>
+            <div>
+               <h1>{launchData.name}</h1>
+               <h3>Launch Details:</h3>
+               <ul>
+                  <li>
+                     <span>Launch date:</span> {toDate(launchData.date)}
+                  </li>
+                  <li>
+                     <span>Flight number: </span>
+                     {launchData.flight_number}
+                  </li>
+                  <li>
+                     <span>Rocket Name: </span>
+                     {rocketData.find((rocket) => rocket.id === launchData.rocket).name}
+                  </li>
+                  <li>
+                     <span>Success: </span>
+                     {launchData.success ? 'Yes' : 'No'}
+                  </li>
+                  <li>
+                     <span>Payloads: </span>
+                     {launchData.payloads.map((payloadID) => (
+                        <p key={payloadID}>
+                           {payloadData.find((payload) => payload.id === payloadID).name} with Load{' '}
+                           {payloadData.find((payload) => payload.id === payloadID).mass_kg || '0'}Kg
+                        </p>
+                     ))}
+                  </li>
+               </ul>
 
-            <h3>Media: </h3>
-            <ul>
-               <li>
-                  <span>Youtube: </span>
-                  <YouTube videoId={launchData.links.youtube_id} opts={youtubePlayer} onReady={_onReady} />
-               </li>
-            </ul>
+               <h3>Media: </h3>
+               <ul>
+                  <li>
+                     <span>Youtube: </span>
+                     <YouTube videoId={launchData.links.youtube_id} opts={youtubePlayer} onReady={_onReady} />
+                  </li>
+               </ul>
 
-            <h3>Other Links:</h3>
-            <ul>
-               <li>
-                  <span>Article: </span>
-                  {launchData.links.article ? (
-                     <a href={launchData.links.article}>{launchData.links.article}</a>
-                  ) : (
-                     'Article not available'
-                  )}
-               </li>
-               <li>
-                  <span>Wikipedia: </span>
-                  {launchData.links.wikipedia ? (
-                     <a href={launchData.links.wikipedia}>{launchData.links.wikipedia}</a>
-                  ) : (
-                     'Wikipedia link not available'
-                  )}
-               </li>
-            </ul>
-         </div>
-      </LaunchDetailLayot>
+               <h3>Other Links:</h3>
+               <ul>
+                  <li>
+                     <span>Article: </span>
+                     {launchData.links.article ? (
+                        <a href={launchData.links.article}>{launchData.links.article}</a>
+                     ) : (
+                        'Article not available'
+                     )}
+                  </li>
+                  <li>
+                     <span>Wikipedia: </span>
+                     {launchData.links.wikipedia ? (
+                        <a href={launchData.links.wikipedia}>{launchData.links.wikipedia}</a>
+                     ) : (
+                        'Wikipedia link not available'
+                     )}
+                  </li>
+               </ul>
+            </div>
+         </LaunchDetailLayot>
+         <TopButton />
+      </div>
    )
 }
 

@@ -5,6 +5,7 @@ const CardComponent = styled.div`
    margin: 2rem 1rem;
    padding: 1rem;
    max-height: 35rem;
+   border-radius: 5px;
    box-shadow: 1px 1px 3px lightgray;
    transition: all 0.3s ease-out;
    
@@ -19,7 +20,7 @@ const CardComponent = styled.div`
       }
    }
    :hover {
-      opacity: 0.7;
+      opacity: 0.9;
       transform: scale(1.02);
    }
 `
