@@ -20,5 +20,10 @@ const ToTopDiv = styled.div`
          max-width: 40px;
       }
    }
+
+   @media (max-width: 700px) {
+      right: 30px;
+      bottom: 30px;
+   }
 `
 export default ToTopDiv

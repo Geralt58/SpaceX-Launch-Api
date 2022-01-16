@@ -37,7 +37,7 @@ const Text = styled.div`
       overflow: scroll;
       &::-webkit-scrollbar {
          width: 0.4rem;
-         background: white;
+         background: transparent;
       }
       transition: all 1s ease-out;
 
