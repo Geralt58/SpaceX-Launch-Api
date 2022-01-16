@@ -1,9 +1,8 @@
 import styled from 'styled-components'
 
 const Spinner = styled.div`
-   grid-column: 2;
+   margin: 5rem auto;
    border: 16px solid #f3f3f3;
-   margin: 5rem 10rem;
    border-radius: 50%;
    border-top: 16px solid gray;
    width: 120px;

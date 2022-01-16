@@ -14,7 +14,7 @@ const LatestLaunchPage = () => {
          const data = await response.json()
          setlaunchData(data)
       } catch (error) {
-         console.log("Error fetching Data", error)
+         console.log('Error fetching Data', error)
          setError(error)
       } finally {
          setLoading(false)
@@ -23,8 +23,8 @@ const LatestLaunchPage = () => {
 
    // console.log(launchData)
 
-   if (loading) return <CardGrid><LoadingSpinner /></CardGrid>
-   if (error) return "Error!"
+   if (loading) return <LoadingSpinner />
+   if (error) return 'Error!'
 
    return (
       <CardGrid>

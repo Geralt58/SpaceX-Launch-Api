@@ -17,15 +17,15 @@ const LaunchDetailPage = () => {
 
    useEffect(async () => {
       try {
-         const launchesResponse = await fetch('https://api.spacexdata.com/v5/launches')
-         const launchesdata = await launchesResponse.json()
-         setlaunchData(launchesdata.find((launch) => launch.id === id.id))
-         const rocketsResponse = await fetch('https://api.spacexdata.com/v4/rockets')
-         const rocketsData = await rocketsResponse.json()
-         setRocketData(rocketsData)
-         const payloadsResponse = await fetch('https://api.spacexdata.com/v4/payloads')
-         const payloadsData = await payloadsResponse.json()
-         setPayloadData(payloadsData)
+         const launchFetchResponse = await fetch(`https://api.spacexdata.com/v5/launches/${id.id}`)
+         const launchFetchdata = await launchFetchResponse.json()
+         setlaunchData(launchFetchdata)
+         const rocketsFetchResponse = await fetch('https://api.spacexdata.com/v4/rockets')
+         const rocketsFetchdata = await rocketsFetchResponse.json()
+         setRocketData(rocketsFetchdata)
+         const payloadsFetchResponse = await fetch('https://api.spacexdata.com/v4/payloads')
+         const payloadsFetchdata = await payloadsFetchResponse.json()
+         setPayloadData(payloadsFetchdata)
       } catch (error) {
          console.log('Error fetching Data', error)
          setError(error)

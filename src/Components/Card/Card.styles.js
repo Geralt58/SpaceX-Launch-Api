@@ -7,6 +7,7 @@ const CardComponent = styled.div`
    max-height: 35rem;
    box-shadow: 1px 1px 3px lightgray;
    transition: all 0.3s ease-out;
+   
    a {
       text-decoration: none;
       color: black;
