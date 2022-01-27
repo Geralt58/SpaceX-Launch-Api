@@ -8,4 +8,3 @@ I have used create-react-app to create the base application and made use of reac
 
 The Website has 4 pages, each individual page showing the lastest, upcoming and past launches, and a page for every individual launch that can be accessed by clicking on any launch card. The website is also responsive and can be viewed on tablets and smartphones.
 
-Totals hours required for this project was approximately 16hours.
