@@ -9,17 +9,21 @@ const PastLaunchPage = () => {
    const [loading, setLoading] = useState(true)
    const [error, setError] = useState(null)
 
-   useEffect(async () => {
-      try {
+   useEffect(() => {
+      const LaunchFetchDataRetrieve = async () => {
          const response = await fetch('https://api.spacexdata.com/v5/launches/past')
          const data = await response.json()
          setlaunchData(data)
-      } catch (error) {
-         console.log('Error fetching Data', error)
-         setError(error)
-      } finally {
-         setLoading(false)
       }
+
+      LaunchFetchDataRetrieve()
+         .catch((error) => {
+            console.log('Error fetching Data', error)
+            setError(error)
+         })
+         .finally(() => {
+            setLoading(false)
+         })
    }, [])
 
    if (loading) return <LoadingSpinner />

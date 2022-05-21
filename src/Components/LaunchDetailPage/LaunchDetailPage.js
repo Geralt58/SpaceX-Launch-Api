@@ -16,23 +16,43 @@ const LaunchDetailPage = () => {
 
    const toDate = (date) => dayjs(date).format('DD/MM/YYYY HH:mm')
 
-   useEffect(async () => {
-      try {
-         const launchFetchResponse = await fetch(`https://api.spacexdata.com/v5/launches/${id.id}`)
-         const launchFetchdata = await launchFetchResponse.json()
-         setlaunchData(launchFetchdata)
-         const rocketsFetchResponse = await fetch('https://api.spacexdata.com/v4/rockets')
-         const rocketsFetchdata = await rocketsFetchResponse.json()
-         setRocketData(rocketsFetchdata)
-         const payloadsFetchResponse = await fetch('https://api.spacexdata.com/v4/payloads')
-         const payloadsFetchdata = await payloadsFetchResponse.json()
-         setPayloadData(payloadsFetchdata)
-      } catch (error) {
-         console.log('Error fetching Data', error)
-         setError(error)
-      } finally {
-         setLoading(false)
+   const launchFetchDataRetrieve = async () => {
+      const launchFetchResponse = await fetch(`https://api.spacexdata.com/v5/launches/${id.id}`)
+      const launchFetchData = await launchFetchResponse.json()
+      return launchFetchData
+   }
+   const rocketsFetchdataRetrieve = async () => {
+      const rocketsFetchResponse = await fetch('https://api.spacexdata.com/v4/rockets')
+      const rocketsFetchData = await rocketsFetchResponse.json()
+      return rocketsFetchData
+   }
+   const payloadsFetchdataRetrieve = async () => {
+      const payloadsFetchResponse = await fetch('https://api.spacexdata.com/v4/payloads')
+      const payloadsFetchData = await payloadsFetchResponse.json()
+      return payloadsFetchData
+   }
+
+   useEffect(() => {
+      const DataRetrieve = async () => {
+         const [launchFetchData, rocketsFetchData, payloadsFetchData] = await Promise.all([
+            launchFetchDataRetrieve(),
+            rocketsFetchdataRetrieve(),
+            payloadsFetchdataRetrieve()
+         ])
+
+         setlaunchData(launchFetchData)
+         setRocketData(rocketsFetchData)
+         setPayloadData(payloadsFetchData)
       }
+
+      DataRetrieve()
+         .catch((error) => {
+            console.log('Error fetching Data', error)
+            setError(error)
+         })
+         .finally(() => {
+            setLoading(false)
+         })
    }, [])
 
    const youtubePlayer = {
