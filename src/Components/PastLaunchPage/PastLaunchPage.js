@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react'
 import Card from '../Card/Card'
 import { CardGrid } from './PastLaunchPage.style'
 import LoadingSpinner from '../LoadingSpinner/LoadingSpinner'
-import TopButton from '../TopButton/TopButton'
 
 const PastLaunchPage = () => {
    const [launchData, setlaunchData] = useState(null)
@@ -36,7 +35,6 @@ const PastLaunchPage = () => {
                <Card key={launch.id} {...launch} />
             ))}
          </CardGrid>
-         <TopButton />
       </div>
    )
 }

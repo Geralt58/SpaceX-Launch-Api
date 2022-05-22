@@ -2,18 +2,38 @@ import styled from 'styled-components'
 import spaceXLaunch from '../../assets/spacex-launch.jpg'
 
 const NavBar = styled.div`
-   display: flex;
+   display: grid;
    background: white;
    height: 7rem;
    box-shadow: 0 1px 5px gray;
-   justify-content: center;
+   grid-template-columns: repeat(3, 1fr);
+   grid-template-rows: 7rem;
    align-items: center;
-   img {
-      max-width: 500px;
 
-      @media (max-width: 700px) {
-         max-width: 300px;
+   /* align-items: center; */
+   .navbar-middle {
+      grid-column-start: 2;
+      img {
+         max-width: 500px;
+         @media (max-width: 700px) {
+            max-width: 300px;
+         }
       }
+   }
+
+   .navbar-right {
+      justify-self: end;
+      margin-right: 50px;
+      transform: scale(0.8);
+      @media (max-width: 700px) {
+         margin-right: 15px;
+         transform: scale(0.5);
+      }
+   }
+
+   @media (max-width: 700px) {
+      height: 6rem;
+      grid-template-rows: 6rem;
    }
 `
 

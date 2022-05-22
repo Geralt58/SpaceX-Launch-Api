@@ -6,6 +6,7 @@ import UpcomingLaunchPage from '../Components/UpcomingLaunchPage/UpcomingLaunchP
 import PastLaunchPage from '../Components/PastLaunchPage/PastLaunchPage'
 import NotFoundPage from '../Components/NotFoundPage/NotFoundPage'
 import LaunchDetailPage from '../Components/LaunchDetailPage/LaunchDetailPage'
+import TopButton from '../Components/TopButton/TopButton'
 
 const AppRouter = () => (
    <BrowserRouter>
@@ -20,6 +21,7 @@ const AppRouter = () => (
             <Route path="/launch/:id" element={<LaunchDetailPage />} />
             <Route element={<NotFoundPage />} />
          </Routes>
+         <TopButton />
          <Footer />
       </div>
    </BrowserRouter>

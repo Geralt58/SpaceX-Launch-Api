@@ -4,7 +4,6 @@ import dayjs from 'dayjs'
 import LoadingSpinner from '../LoadingSpinner/LoadingSpinner'
 import YouTube from 'react-youtube'
 import { LaunchDetailLayot } from './LaunchDetailPage.style'
-import TopButton from '../TopButton/TopButton'
 
 const LaunchDetailPage = () => {
    const [launchData, setlaunchData] = useState(null)
@@ -132,7 +131,6 @@ const LaunchDetailPage = () => {
                </ul>
             </div>
          </LaunchDetailLayot>
-         <TopButton />
       </div>
    )
 }
