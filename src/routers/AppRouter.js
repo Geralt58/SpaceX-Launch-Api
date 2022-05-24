@@ -8,11 +8,11 @@ import PastLaunchPage from '../Components/PastLaunchPage/PastLaunchPage'
 import NotFoundPage from '../Components/NotFoundPage/NotFoundPage'
 import LaunchDetailPage from '../Components/LaunchDetailPage/LaunchDetailPage'
 import TopButton from '../Components/TopButton/TopButton'
-import { getTheme, ThemeContext } from '../config/theme'
+import { ThemeWrapper } from '../config/theme'
 
 const AppRouter = () => (
    <BrowserRouter>
-      <ThemeContext.Provider value={{ ...getTheme() }}>
+      <ThemeWrapper>
          <Header />
          <Routes>
             <Route path="/" element={<Navigate to="/launches/latest" />} exact />
@@ -25,7 +25,7 @@ const AppRouter = () => (
          </Routes>
          <TopButton />
          <Footer />
-      </ThemeContext.Provider>
+      </ThemeWrapper>
    </BrowserRouter>
 )
 

@@ -1,10 +1,12 @@
-import { useEffect, useState } from 'react'
+import { useContext } from 'react'
 import Toggler from './DarkModeToggler.styles'
+import { ThemeContext } from '../../config/theme'
 
+const DarkModeToggler = () => {
+   const { setDarkTheme, setLightTheme } = useContext(ThemeContext)
 
-export default () => {
    const handleThemeChange = (e) => {
-      // e.target.checked ? setDarkTheme() : setLightTheme()
+      e.target.checked ? setDarkTheme() : setLightTheme()
    }
 
    return (
@@ -26,3 +28,5 @@ export default () => {
       </Toggler>
    )
 }
+
+export default DarkModeToggler

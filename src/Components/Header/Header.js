@@ -6,11 +6,11 @@ import DarkModeToggler from '../DarkModeToggler/DarkModeToggler'
 import { ThemeContext } from '../../config/theme'
 
 const Header = () => {
-   const theme = useContext(ThemeContext)
+   const { theme } = useContext(ThemeContext)
 
    return (
       <div id="top">
-         <NavBar theme={theme}>
+         <NavBar theme={ theme }>
             <div className="navbar-middle">
                <NavLink to="/">
                   <img src={spaceX} alt="SpaceX" />

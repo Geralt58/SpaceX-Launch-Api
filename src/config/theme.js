@@ -1,26 +1,22 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 const LightTheme = {
-   headerBackgroundColor: '#333'
+   headerBackgroundColor: 'white'
 }
 
 const DarkTheme = {
-   headerBackgroundColor: '#fff'
-}
-
-const getTheme = () => {
-   //localstore true false dark light
-   return LightTheme
-}
-
-const setDarkTheme = () => {
-   
-}
-
-const setLightTheme = () => {
-   
+   headerBackgroundColor: '#333'
 }
 
 const ThemeContext = React.createContext()
 
-export { getTheme, ThemeContext }
+const ThemeWrapper = ({ children }) => {
+   const [theme, setTheme] = useState(LightTheme)
+
+   const setDarkTheme = () => setTheme(DarkTheme)
+   const setLightTheme = () => setTheme(LightTheme)
+
+   return <ThemeContext.Provider value={{ theme, setDarkTheme, setLightTheme }}>{children}</ThemeContext.Provider>
+}
+
+export { ThemeWrapper, ThemeContext }
