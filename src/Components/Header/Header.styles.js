@@ -3,7 +3,7 @@ import spaceXLaunch from '../../assets/spacex-launch.jpg'
 
 const NavBar = styled.div`
    display: grid;
-   background: white;
+   background: ${(props) => props.theme.headerBackgroundColor};
    height: 7rem;
    box-shadow: 0 1px 5px gray;
    grid-template-columns: repeat(3, 1fr);

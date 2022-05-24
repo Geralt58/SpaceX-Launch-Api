@@ -1,3 +1,4 @@
+import React from 'react'
 import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom'
 import Header from '../Components/Header/Header'
 import Footer from '../Components/Footer/Footer'
@@ -7,10 +8,11 @@ import PastLaunchPage from '../Components/PastLaunchPage/PastLaunchPage'
 import NotFoundPage from '../Components/NotFoundPage/NotFoundPage'
 import LaunchDetailPage from '../Components/LaunchDetailPage/LaunchDetailPage'
 import TopButton from '../Components/TopButton/TopButton'
+import { getTheme, ThemeContext } from '../config/theme'
 
 const AppRouter = () => (
    <BrowserRouter>
-      <div>
+      <ThemeContext.Provider value={{ ...getTheme() }}>
          <Header />
          <Routes>
             <Route path="/" element={<Navigate to="/launches/latest" />} exact />
@@ -23,7 +25,7 @@ const AppRouter = () => (
          </Routes>
          <TopButton />
          <Footer />
-      </div>
+      </ThemeContext.Provider>
    </BrowserRouter>
 )
 

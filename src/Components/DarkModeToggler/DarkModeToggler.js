@@ -1,19 +1,15 @@
 import { useEffect, useState } from 'react'
 import Toggler from './DarkModeToggler.styles'
 
+
 export default () => {
-   const [isDark, setIsDark] = useState(false)
+   const handleThemeChange = (e) => {
+      // e.target.checked ? setDarkTheme() : setLightTheme()
+   }
 
    return (
       <Toggler>
-         <input
-            type="checkbox"
-            id="dn"
-            checked={isDark}
-            onChange={() => {
-               setIsDark(!isDark)
-            }}
-         />
+         <input type="checkbox" id="dn" onChange={handleThemeChange} />
          <label htmlFor="dn" className="toggle">
             <span className="toggle__handler">
                <span className="crater crater--1"></span>
