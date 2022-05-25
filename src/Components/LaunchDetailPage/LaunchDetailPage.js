@@ -1,9 +1,10 @@
 import { useParams } from 'react-router-dom'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useContext } from 'react'
 import dayjs from 'dayjs'
-import LoadingSpinner from '../LoadingSpinner/LoadingSpinner'
+import LoadingSpinner from 'Components/LoadingSpinner/LoadingSpinner'
 import YouTube from 'react-youtube'
 import { LaunchDetailLayot } from './LaunchDetailPage.style'
+import { ThemeContext } from 'config/theme'
 
 const LaunchDetailPage = () => {
    const [launchData, setlaunchData] = useState(null)
@@ -12,26 +13,26 @@ const LaunchDetailPage = () => {
    const [loading, setLoading] = useState(true)
    const [error, setError] = useState(null)
    const id = useParams()
+   const { theme } = useContext(ThemeContext)
 
    const toDate = (date) => dayjs(date).format('DD/MM/YYYY HH:mm')
 
-   const launchFetchDataRetrieve = async () => {
-      const launchFetchResponse = await fetch(`https://api.spacexdata.com/v5/launches/${id.id}`)
-      const launchFetchData = await launchFetchResponse.json()
-      return launchFetchData
-   }
-   const rocketsFetchdataRetrieve = async () => {
-      const rocketsFetchResponse = await fetch('https://api.spacexdata.com/v4/rockets')
-      const rocketsFetchData = await rocketsFetchResponse.json()
-      return rocketsFetchData
-   }
-   const payloadsFetchdataRetrieve = async () => {
-      const payloadsFetchResponse = await fetch('https://api.spacexdata.com/v4/payloads')
-      const payloadsFetchData = await payloadsFetchResponse.json()
-      return payloadsFetchData
-   }
-
    useEffect(() => {
+      const launchFetchDataRetrieve = async () => {
+         const launchFetchResponse = await fetch(`https://api.spacexdata.com/v5/launches/${id.id}`)
+         const launchFetchData = await launchFetchResponse.json()
+         return launchFetchData
+      }
+      const rocketsFetchdataRetrieve = async () => {
+         const rocketsFetchResponse = await fetch('https://api.spacexdata.com/v4/rockets')
+         const rocketsFetchData = await rocketsFetchResponse.json()
+         return rocketsFetchData
+      }
+      const payloadsFetchdataRetrieve = async () => {
+         const payloadsFetchResponse = await fetch('https://api.spacexdata.com/v4/payloads')
+         const payloadsFetchData = await payloadsFetchResponse.json()
+         return payloadsFetchData
+      }
       const DataRetrieve = async () => {
          const [launchFetchData, rocketsFetchData, payloadsFetchData] = await Promise.all([
             launchFetchDataRetrieve(),
@@ -71,7 +72,7 @@ const LaunchDetailPage = () => {
 
    return (
       <div>
-         <LaunchDetailLayot>
+         <LaunchDetailLayot theme={theme}>
             <div>
                <h1>{launchData.name}</h1>
                <h3>Launch Details:</h3>

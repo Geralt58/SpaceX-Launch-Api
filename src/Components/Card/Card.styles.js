@@ -1,14 +1,14 @@
 import styled from 'styled-components'
 
 const CardComponent = styled.div`
-   background: white;
+   background: ${(props) => props.theme.LayerOneColor};
    margin: 2rem 1rem;
    padding: 1rem;
    max-height: 35rem;
    border-radius: 5px;
-   box-shadow: 1px 1px 3px lightgray;
+   box-shadow: 0px 1px 3px ${(props) => props.theme.Shadow};
    transition: all 0.3s ease-out;
-   
+
    a {
       text-decoration: none;
       color: black;
@@ -20,7 +20,7 @@ const CardComponent = styled.div`
       }
    }
    :hover {
-      opacity: 0.9;
+      background-color: ${(props) => props.theme.Hover};
       transform: scale(1.02);
    }
 `
@@ -32,13 +32,18 @@ const Text = styled.div`
    align-items: center;
    margin-top: 2rem;
    max-height: 15rem;
+   color: ${(props) => props.theme.TextColor};
    ul {
       padding-top: 4rem;
       overflow: scroll;
       &::-webkit-scrollbar {
          width: 0.4rem;
          background: transparent;
+         &-corner {
+            background: transparent;
+         }
       }
+
       transition: all 1s ease-out;
 
       :hover {

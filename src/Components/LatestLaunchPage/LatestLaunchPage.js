@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
-import Card from '../Card/Card'
+import Card from 'Components/Card/Card'
 import { CardGrid } from './LatestLaunchPage.style'
-import LoadingSpinner from '../LoadingSpinner/LoadingSpinner'
+import LoadingSpinner from 'Components/LoadingSpinner/LoadingSpinner'
 
 const LatestLaunchPage = () => {
    const [launchData, setlaunchData] = useState(null)

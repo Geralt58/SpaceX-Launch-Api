@@ -1,22 +1,38 @@
 import React, { useState } from 'react'
+import { createGlobalStyle } from 'styled-components'
 
-const LightTheme = {
-   headerBackgroundColor: 'white'
-}
+const GlobalStyle = createGlobalStyle`
+  body {
+    background: ${(props) => props.theme.bodyBackground};
+  }
+`
 
-const DarkTheme = {
-   headerBackgroundColor: '#333'
+const getTheme = (darkTheme) => {
+   return {
+      bodyBackground: darkTheme ? '#0c0c0c' : '#f3f3f3',
+      LayerOneColor: darkTheme ? '#333' : 'white',
+      TextColor: darkTheme ? 'white' : 'black',
+      Line: darkTheme ? 'black' : 'lightgray',
+      Hover: darkTheme ? 'gray' : 'lightgray',
+      Shadow: darkTheme ? 'transparent' : 'gray'
+   }
 }
 
 const ThemeContext = React.createContext()
 
 const ThemeWrapper = ({ children }) => {
-   const [theme, setTheme] = useState(LightTheme)
+   const [isDark, setIsDark] = useState(false)
 
-   const setDarkTheme = () => setTheme(DarkTheme)
-   const setLightTheme = () => setTheme(LightTheme)
+   const setDarkTheme = () => setIsDark(true)
+   const setLightTheme = () => setIsDark(false)
+   const theme = getTheme(isDark)
 
-   return <ThemeContext.Provider value={{ theme, setDarkTheme, setLightTheme }}>{children}</ThemeContext.Provider>
+   return (
+      <>
+         <GlobalStyle theme={theme} />
+         <ThemeContext.Provider value={{ theme, setDarkTheme, setLightTheme }}>{children}</ThemeContext.Provider>
+      </>
+   )
 }
 
 export { ThemeWrapper, ThemeContext }

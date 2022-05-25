@@ -6,12 +6,18 @@ const LaunchDetailLayot = styled.div`
    align-items: center;
 
    > div {
-      background: white;
+      background: ${(props) => props.theme.LayerOneColor};
+      color: ${(props) => props.theme.TextColor};
       width: 1000px;
       margin: 2rem;
       padding: 3rem;
-      box-shadow: 1px 1px 3px lightgray;
+      border-radius: 5px;
+      box-shadow: 1px 1px 5px ${(props) => props.theme.Shadow};
       overflow-wrap: break-word;
+
+      a {
+         color: ${(props) => props.theme.TextColor};
+      }
 
       h1 {
          border-bottom: 1px solid lightgray;
@@ -29,7 +35,7 @@ const LaunchDetailLayot = styled.div`
       }
 
       iframe {
-          margin: 1rem;
+         margin: 1rem;
       }
 
       span {

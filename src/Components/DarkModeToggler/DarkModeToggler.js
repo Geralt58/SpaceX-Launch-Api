@@ -1,6 +1,6 @@
 import { useContext } from 'react'
 import Toggler from './DarkModeToggler.styles'
-import { ThemeContext } from '../../config/theme'
+import { ThemeContext } from 'config/theme'
 
 const DarkModeToggler = () => {
    const { setDarkTheme, setLightTheme } = useContext(ThemeContext)

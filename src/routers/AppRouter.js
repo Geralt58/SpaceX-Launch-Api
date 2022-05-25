@@ -1,14 +1,14 @@
 import React from 'react'
 import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom'
-import Header from '../Components/Header/Header'
-import Footer from '../Components/Footer/Footer'
-import LatestLaunchPage from '../Components/LatestLaunchPage/LatestLaunchPage'
-import UpcomingLaunchPage from '../Components/UpcomingLaunchPage/UpcomingLaunchPage'
-import PastLaunchPage from '../Components/PastLaunchPage/PastLaunchPage'
-import NotFoundPage from '../Components/NotFoundPage/NotFoundPage'
-import LaunchDetailPage from '../Components/LaunchDetailPage/LaunchDetailPage'
-import TopButton from '../Components/TopButton/TopButton'
-import { ThemeWrapper } from '../config/theme'
+import Header from 'Components/Header/Header'
+import Footer from 'Components/Footer/Footer'
+import LatestLaunchPage from 'Components/LatestLaunchPage/LatestLaunchPage'
+import UpcomingLaunchPage from 'Components/UpcomingLaunchPage/UpcomingLaunchPage'
+import PastLaunchPage from 'Components/PastLaunchPage/PastLaunchPage'
+import NotFoundPage from 'Components/NotFoundPage/NotFoundPage'
+import LaunchDetailPage from 'Components/LaunchDetailPage/LaunchDetailPage'
+import TopButton from 'Components/TopButton/TopButton'
+import { ThemeWrapper } from 'config/theme'
 
 const AppRouter = () => (
    <BrowserRouter>

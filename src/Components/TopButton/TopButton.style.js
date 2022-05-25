@@ -9,14 +9,19 @@ const ToTopDiv = styled.div`
       bottom: 50px;
       right: 50px;
       display: inline-block;
-      background: white;
+      background: ${(props) => props.theme.LayerOneColor};
       border-radius: 50%;
       padding: 1rem;
-      box-shadow: 1px 1px 5px gray;
-      transition: background-color 0.5s ease-out, bottom 0.2s ease-in-out;
+      box-shadow: 0 1px 5px gray;
+      transition: all 0.2s ease-out, bottom 0.2s ease-in-out;
 
       :hover {
-         background-color: #f2f2f2;
+         background-color: ${(props) => props.theme.Hover};
+         transform: scale(1.02);
+      }
+
+      :active {
+         transform: scale(0.98);
       }
 
       img {

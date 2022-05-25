@@ -3,7 +3,7 @@ import spaceXLaunch from '../../assets/spacex-launch.jpg'
 
 const NavBar = styled.div`
    display: grid;
-   background: ${(props) => props.theme.headerBackgroundColor};
+   background: ${(props) => props.theme.LayerOneColor};
    height: 7rem;
    box-shadow: 0 1px 5px gray;
    grid-template-columns: repeat(3, 1fr);
@@ -76,14 +76,15 @@ const Content = styled.div`
 `
 
 const LaunchLink = styled.div`
-   box-shadow: 0 1px 5px gray;
-   background: white;
+   box-shadow: 1px 1px 5px ${(props) => props.theme.Shadow};
+   background: ${(props) => props.theme.LayerOneColor};
+   color: ${(props) => props.theme.TextColor};
 
    p {
       font-weight: bold;
       text-align: center;
       padding: 3rem 0;
-      border-bottom: 1px solid lightgray;
+      border-bottom: 1px solid ${(props) => props.theme.Line};
    }
 
    ul {
@@ -100,11 +101,11 @@ const LaunchLink = styled.div`
          a {
             text-decoration: none;
             padding: 1.9rem 6rem;
-            color: black;
-            transition: all 0.5s ease-out;
+            color: ${(props) => props.theme.TextColor};
+            transition: background-color 0.3s ease-in-out;
 
             :hover {
-               background: lightgray;
+               background-color: ${(props) => props.theme.Hover};
             }
          }
       }

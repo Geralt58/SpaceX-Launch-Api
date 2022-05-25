@@ -1,31 +1,31 @@
-import { useState, useEffect } from 'react'
-import topButton from '../../assets/up-arrow.png'
+import { useState, useContext } from 'react'
+import topButtonBlack from '../../assets/up-arrow-black.png'
+import topButtonWhite from '../../assets/up-arrow-white.png'
 import ToTopDiv from './TopButton.style'
+import { ThemeContext } from '../../config/theme'
+import { useScroll } from 'hooks'
 
 const TopButton = () => {
    const [hideButton, SetHideButton] = useState(true)
+   const { theme } = useContext(ThemeContext)
 
-   useEffect(() => {
-      const updateHideButton = () => {
-         const scrollCheck = window.scrollY < 700
-         if (scrollCheck !== hideButton) {
-            SetHideButton(scrollCheck)
-         } else if (window.scrollY === 0) {
-            SetHideButton(true)
-         }
-      }
-
-      document.addEventListener('scroll', updateHideButton)
-
-      return () => {
-         document.removeEventListener('scroll', updateHideButton)
-      }
-   }, [])
+   useScroll(
+      (scrollY) => scrollY > window.innerHeight,
+      () => SetHideButton(false)
+   )
+   useScroll(
+      (scrollY) => scrollY === 0,
+      () => SetHideButton(true)
+   )
 
    return (
-      <ToTopDiv>
+      <ToTopDiv theme={theme}>
          <a href="#top" className={`${hideButton ? 'hide' : ''}`}>
-            <img src={topButton} alt="Go to Top" />
+            {theme.TextColor === 'black' ? (
+               <img src={topButtonBlack} alt="Go to Top Black" />
+            ) : (
+               <img src={topButtonWhite} alt="Go to Top White" />
+            )}
          </a>
       </ToTopDiv>
    )

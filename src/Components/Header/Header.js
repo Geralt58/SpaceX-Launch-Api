@@ -1,9 +1,9 @@
 import { useContext } from 'react'
 import { NavLink, useLocation } from 'react-router-dom'
 import { NavBar, Content, LaunchLink } from './Header.styles'
-import spaceX from '../../assets/Spacex-logo.png'
-import DarkModeToggler from '../DarkModeToggler/DarkModeToggler'
-import { ThemeContext } from '../../config/theme'
+import spaceX from 'assets/Spacex-logo.png'
+import DarkModeToggler from 'Components/DarkModeToggler/DarkModeToggler'
+import { ThemeContext } from 'config/theme'
 
 const Header = () => {
    const { theme } = useContext(ThemeContext)
@@ -29,7 +29,7 @@ const Header = () => {
                )}
             </div>
          </Content>
-         <LaunchLink>
+         <LaunchLink theme={ theme }>
             <p id="launch-heading">SpaceX Launch Database</p>
             <ul>
                <li>
