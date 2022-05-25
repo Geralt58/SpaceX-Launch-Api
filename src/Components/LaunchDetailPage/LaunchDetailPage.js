@@ -53,7 +53,7 @@ const LaunchDetailPage = () => {
          .finally(() => {
             setLoading(false)
          })
-   }, [])
+   }, [id])
 
    const youtubePlayer = {
       height: '487.5',

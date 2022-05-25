@@ -4,16 +4,18 @@ const ToTopDiv = styled.div`
    .hide {
       bottom: -100px;
    }
-   a {
+   button {
       position: fixed;
       bottom: 50px;
       right: 50px;
       display: inline-block;
+      border: 0;
       background: ${(props) => props.theme.LayerOneColor};
       border-radius: 50%;
       padding: 1rem;
       box-shadow: 0 1px 5px gray;
       transition: all 0.2s ease-out, bottom 0.2s ease-in-out;
+      cursor: pointer;
 
       :hover {
          background-color: ${(props) => props.theme.Hover};

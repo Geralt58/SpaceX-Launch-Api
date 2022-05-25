@@ -18,15 +18,19 @@ const TopButton = () => {
       () => SetHideButton(true)
    )
 
+   const handleToTopScroll = () => {
+      window.scrollTo({top: 0})
+   }
+
    return (
       <ToTopDiv theme={theme}>
-         <a href="#top" className={`${hideButton ? 'hide' : ''}`}>
+         <button onClick={handleToTopScroll} className={`${hideButton ? 'hide' : ''}`}>
             {theme.TextColor === 'black' ? (
                <img src={topButtonBlack} alt="Go to Top Black" />
             ) : (
                <img src={topButtonWhite} alt="Go to Top White" />
             )}
-         </a>
+         </button>
       </ToTopDiv>
    )
 }
